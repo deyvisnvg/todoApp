@@ -7,3 +7,5 @@ export { default as signal } from './signal.svg';
 export { default as book_title } from './book-title.svg';
 export { default as arrow } from './arrow.svg';
 export { default as home } from './home.svg';
+export { default as addTaks } from './add-taks.svg';
+export { default as brand } from './brand.svg';

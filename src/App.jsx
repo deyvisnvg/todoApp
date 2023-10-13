@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { TodoList, TodoListCategory, Modal } from './components';
 import { categories } from './core/category';
 import { tasks } from './mock/tasks';
-import { book_title, arrow, home } from './assets/icons'
+import { book_title, arrow, home, addTaks, brand } from './assets/icons'
 
 
 export default function App() {
@@ -13,7 +13,7 @@ export default function App() {
 
   return (
     <>
-      <div className='p-6'>
+      <div className='p-6 h-screen'>
         <div className='mb-10 text-xs'>
           <img src={home} alt="" className='w-7 text-blue-700'/>
         </div>
@@ -52,13 +52,23 @@ export default function App() {
         <Modal open={open} onClose={() => setOpen(!open)}>
           <h1>Es un Modal</h1>
         </Modal>
+        
+        <div className='flex justify-center'>
+          <div className='fixed bottom-[-30px] bg-bottonAdd shadow-gray-800 shadow-xl w-64 h-32 rounded-t-full'>
+            <button
+              onClick={() => setOpen(!open)}
+              className='absolute left-[108px] top-[-20px] bg-blue-500 p-2 rounded-full'
+              title='Agregar'
+            >
+              <img src={addTaks} alt="image agregar" className='w-8'/>
+            </button>
+            <div className='flex absolute top-12 left-16 gap-2'>
+              <img src={brand} alt="icon" />
+              <p className='text-lg'>Deyvisnvg</p>
+            </div>
+          </div>
+        </div>
 
-        <button
-          onClick={() => setOpen(!open)}
-          className='fixed bottom-10 right-10 bg-blue-500 p-2 rounded-full w-12 h-12'
-        >
-          +
-        </button>
       </div >
     </>
   )
