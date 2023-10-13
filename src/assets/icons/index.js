@@ -4,3 +4,6 @@ export { default as checkCircleWarn } from './check-circle_warn.svg';
 export { default as checkCircle } from './check-circle.svg';
 export { default as shoppingBag } from './shopping-bag.svg';
 export { default as signal } from './signal.svg';
+export { default as book_title } from './book-title.svg';
+export { default as arrow } from './arrow.svg';
+export { default as home } from './home.svg';
