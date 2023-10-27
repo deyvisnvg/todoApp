@@ -8,7 +8,6 @@ export default function Header({ title, text }) {
                     <li className="cursor-pointer hover:text-white">Home</li>
                     <li className="cursor-pointer hover:text-purple-400">About</li>
                     <li className="cursor-pointer hover:text-yellow-200">Contact</li>
-                    <li className="cursor-pointer hover:text-yellow-200">Contact</li>
                 </ul>
             </nav>
             <h2>{title}</h2>

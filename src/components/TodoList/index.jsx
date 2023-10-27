@@ -1,38 +1,34 @@
 import PropTypes from "prop-types";
-import { checkCircle, checkCircleWarn } from "../../assets/icons";
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { checkCircle } from "../../assets/icons";
 
-export default function TodoList({ tasks, currentCategory, setCurrentTasks }) {
-    const filterTask = currentCategory
-        ? tasks.filter(task => task.category === currentCategory)
+export default function TodoList({ tasks, category }) {
+    const filterTask = category
+        ? tasks?.filter((task) => task.category === category)
         : tasks;
-
-    useEffect(()=> {
-        setCurrentTasks(filterTask.length);
-    })
 
     return (
         <div className="my-3 rounded-xl bg-gray-300 p-3">
-            {
-                filterTask.map(task => (
-                    <div
+            {filterTask && filterTask.length > 0 ? (
+                filterTask.map((task) => (
+                    <Link
+                        to={`/detail/${task.id}`}
                         key={task.text}
                         className="bg-white rounded-xl mb-3 px-2 py-3 flex gap-3"
                     >
-                        <img
-                            src={checkCircle}
-                            alt=""
-                        />
-                        <p>{task.text}</p>
-                    </div>
+                        <img src={checkCircle} /> <p>{task.text}</p>
+                    </Link>
                 ))
-            }
+            ) : (
+                <>
+                    <p>No hay nada que hacer</p>
+                </>
+            )}
         </div>
-    )
+    );
 }
 
-TodoList.prototype = {
+TodoList.propTypes = {
     tasks: PropTypes.array,
-    currentCategory: PropTypes.string,
-    setCurrentTasks: PropTypes.func
-}
+    category: PropTypes.string,
+};
