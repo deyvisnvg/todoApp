@@ -8,23 +8,23 @@ export default function TodoList({ tasks, category }) {
         : tasks;
 
     return (
-        <div className="my-3 rounded-xl bg-gray-300 p-3">
-            {filterTask && filterTask.length > 0 ? (
-                filterTask.map((task) => (
-                    <Link
-                        to={`/detail/${task.id}`}
-                        key={task.text}
-                        className="bg-white rounded-xl mb-3 px-2 py-3 flex gap-3"
-                    >
-                        <img src={checkCircle} /> <p>{task.text}</p>
-                    </Link>
-                ))
-            ) : (
-                <>
+        <>
+            <div className="my-3 rounded-xl bg-gray-300 p-3">
+                {filterTask && filterTask.length > 0 ? (
+                    filterTask.map((task) => (
+                        <Link
+                            to={`/detail/${task.id}`}
+                            key={task.text}
+                            className="bg-white rounded-xl mb-3 px-2 py-3 flex gap-3"
+                        >
+                            <img src={checkCircle} /> <p>{task.text}</p>
+                        </Link>
+                    ))
+                ) : (
                     <p>No hay nada que hacer</p>
-                </>
-            )}
-        </div>
+                )}
+            </div>
+        </>
     );
 }
 
